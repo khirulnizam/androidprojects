@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    //URI from app that has ContentProvider class
     Uri CONTENT_URI = Uri.parse("content://net.kerul.appcontentproviderdata.provider/users");
 
 

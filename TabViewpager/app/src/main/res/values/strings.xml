@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Number Swiper</string>
+    <string name="tab_text_1">1</string>
+    <string name="tab_text_2">2</string>
+    <string name="tab_text_3">3</string>
+    <string name="tab_text_4">4</string>
+    <string name="tab_text_5">5</string>
+    <string name="tab_text_6">6</string>
+    <string name="tab_text_7">7</string>
+    <string name="tab_text_8">8</string>
+    <string name="tab_text_9">9</string>
+</resources>

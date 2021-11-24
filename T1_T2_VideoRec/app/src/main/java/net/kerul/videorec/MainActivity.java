@@ -52,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
         //animage.animate().setDuration(1000);
         //animage.animate().rotationXBy(360.0f);
     }
+    public void onClickFlipHorizontal(View view){
+        animage.animate().setDuration(1000);
+        animage.animate().rotationXBy(360f);
+        //animage.animate().setDuration(1000);
+        //animage.animate().rotationXBy(360.0f);
+    }
+    public void onClickRotate(View view){
+        animage.animate().setDuration(1000);
+        animage.animate().rotation(360f);
+    }
 
     private boolean isCameraPresence(){//check camera presence
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)){

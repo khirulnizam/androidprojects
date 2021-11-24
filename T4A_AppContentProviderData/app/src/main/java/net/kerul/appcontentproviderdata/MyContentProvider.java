@@ -1,6 +1,6 @@
 package net.kerul.appcontentproviderdata;
 //authorities
-// net.kerul.appcontentproviderdata.MyContentProvider
+// net.kerul.appcontentproviderdata.provider
 
 import android.content.ContentProvider;
 import android.content.ContentUris;

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/androidprojects/T1_T2_VideoRec/app/src/main/res/drawable/ic_baseline_videocam_24.xml" value="0.1" />
+        <entry key="..\:/androidprojects/T1_T2_VideoRec/app/src/main/res/layout-land/activity_main.xml" value="0.21354166666666666" />
+        <entry key="..\:/androidprojects/T1_T2_VideoRec/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/androidprojects/VideoRec/app/src/main/res/drawable/ic_baseline_videocam_24.xml" value="0.1" />
         <entry key="..\:/androidprojects/VideoRec/app/src/main/res/layout-land/activity_main.xml" value="0.264" />
         <entry key="..\:/androidprojects/VideoRec/app/src/main/res/layout/activity_main.xml" value="0.264" />

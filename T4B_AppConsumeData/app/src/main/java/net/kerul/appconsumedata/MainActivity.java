@@ -28,27 +28,26 @@ public class MainActivity extends AppCompatActivity {
         // inserting complete table details in this text field
         TextView resultView= (TextView) findViewById(R.id.res);
 
-        // creating a cursor object of the
-        // content URI
+        // creating a cursor object of the content URI
         Cursor cursor;
-        try {
-            cursor = getContentResolver().query(Uri.parse("content://net.kerul.appcontentproviderdata.provider/users"), null, null, null, null);
+        cursor = getContentResolver().query(
+                Uri.parse("content://net.kerul.appcontentproviderdata.provider/users"),
+                null, null, null, null);
 
-
-            // iteration of the cursor
-            // to print whole table
-            if (cursor.moveToFirst()) {
-                StringBuilder strBuild = new StringBuilder();
-                while (!cursor.isAfterLast()) {
-                    strBuild.append("\n" + cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")));
-                    cursor.moveToNext();
-                }
-                resultView.setText(strBuild);
-            } else {
-                resultView.setText("No Records Found");
+        // iteration of the cursor to print whole table
+        if (cursor.moveToFirst()) {
+            StringBuilder strBuild = new StringBuilder();
+            while (!cursor.isAfterLast()) {
+                strBuild.append("\n" + cursor.getString(cursor.getColumnIndex("id")) + "-" +
+                        cursor.getString(cursor.getColumnIndex("name")));
+                cursor.moveToNext();
             }
-        }catch(Exception ex) {
-            Log.e("ContentResolver", ex.toString());
-        }//end exception
-    }
-}
+            resultView.setText(strBuild);
+        } else {
+            resultView.setText("No Records Found");
+        }
+
+    }//end onClickShowDetails
+    //end fetch all data from table
+
+}//end MainActivity

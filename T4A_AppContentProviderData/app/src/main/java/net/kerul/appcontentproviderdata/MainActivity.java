@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    //Uri CONTENT_URI = Uri.parse("content://net.kerul.appcontentproviderdata.provider/users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         return true;
     }
+
     public void onClickAddDetails(View view) {
 
         // class to add values in the database
@@ -43,23 +43,24 @@ public class MainActivity extends AppCompatActivity {
 
         // displaying a toast message
         Toast.makeText(getBaseContext(), "New Record Inserted "+uri2, Toast.LENGTH_LONG).show();
-    }
+    }//end onClickAddDetails
 
     @SuppressLint("Range")
     public void onClickShowDetails(View view) {
         // inserting complete table details in this text field
         TextView resultView= (TextView) findViewById(R.id.res);
 
-        // creating a cursor object of the
-        // content URI
-        Cursor cursor = getContentResolver().query(Uri.parse("content://net.kerul.appcontentproviderdata.provider/users"), null, null, null, null);
+        // creating a cursor object of the content URI
+        Cursor cursor = getContentResolver().query(
+                Uri.parse("content://net.kerul.appcontentproviderdata.provider/users"),
+                null, null, null, null);
 
-        // iteration of the cursor
-        // to print whole table
+        // iteration of the cursor to print whole table
         if(cursor.moveToFirst()) {
             StringBuilder strBuild=new StringBuilder();
             while (!cursor.isAfterLast()) {
-                strBuild.append("\n"+cursor.getString(cursor.getColumnIndex("id"))+ "-"+ cursor.getString(cursor.getColumnIndex("name")));
+                strBuild.append("\n"+cursor.getString(cursor.getColumnIndex("id"))+ "-"+
+                        cursor.getString(cursor.getColumnIndex("name")));
                 cursor.moveToNext();
             }
             resultView.setText(strBuild);
@@ -67,5 +68,5 @@ public class MainActivity extends AppCompatActivity {
         else {
             resultView.setText("No Records Found");
         }
-    }
-}
+    }//end onClickShowDetails
+}//end MainActivity

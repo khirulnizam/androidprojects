@@ -24,15 +24,17 @@ public class MainActivity extends AppCompatActivity {
     private static int CAMERA_PERMISSION_CODE=100;
     private static int VIDEO_RECORDING_CODE=101;
     private Uri videoPath;
-    ImageView animage;
+    ImageView animage,imagebanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //animate video logo
+        //vector asset
         animage=findViewById(R.id.animage);
+        //bmp asset
+        imagebanner=findViewById(R.id.imagebanner);
 
 
         //checking camera presence
@@ -53,14 +55,33 @@ public class MainActivity extends AppCompatActivity {
         //animage.animate().rotationXBy(360.0f);
     }
     public void onClickFlipHorizontal(View view){
+        //flip vector asset logo
         animage.animate().setDuration(1000);
         animage.animate().rotationXBy(360f);
-        //animage.animate().setDuration(1000);
-        //animage.animate().rotationXBy(360.0f);
+        //flip banner
+        imagebanner.animate().setDuration(1000)
+                    .rotationYBy(360f);
+
     }
     public void onClickRotate(View view){
         animage.animate().setDuration(1000);
         animage.animate().rotation(360f);
+    }
+
+    public void onClickFade(View view){
+        animage.setAlpha(0f);
+        animage.setVisibility(View.VISIBLE);
+        animage.animate()
+                .alpha(1.0f)
+                .setDuration(5000);
+
+        //bmp asset
+        imagebanner.setAlpha(0f);
+        imagebanner.setVisibility(View.VISIBLE);
+        imagebanner.animate()
+                .alpha(1.0f)
+                .setDuration(5000);
+
     }
 
     private boolean isCameraPresence(){//check camera presence

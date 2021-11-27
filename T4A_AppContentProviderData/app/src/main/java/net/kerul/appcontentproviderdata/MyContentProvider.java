@@ -86,7 +86,7 @@ public class MyContentProvider extends ContentProvider {
                 null, sortOrder);
         c.setNotificationUri(getContext().getContentResolver(), uri);
         return c;
-    }
+    }//end query
 
     // adding data to the database
     @Override
@@ -98,7 +98,7 @@ public class MyContentProvider extends ContentProvider {
             return _uri;
         }
         throw new SQLiteException("Failed to add a record into " + uri);
-    }
+    }//end insert
 
     @Override
     public int update(Uri uri, ContentValues values, String selection,
@@ -152,15 +152,15 @@ public class MyContentProvider extends ContentProvider {
 
         // defining a constructor
         DatabaseHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
+            super(context, DATABASE_NAME,
+                    null, DATABASE_VERSION);
         }
 
-        // creating a table in the database
         @Override
         public void onCreate(SQLiteDatabase db) {
-
+            // creating a table in the database
             db.execSQL(CREATE_DB_TABLE);
-        }
+        }//end onCreate db
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -169,6 +169,6 @@ public class MyContentProvider extends ContentProvider {
             // having similar name
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             onCreate(db);
-        }
-    }
-}
+        }//end onUpgrade
+    }//end class DatabaseHelper
+}//end MyContentProvider

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imagebanner"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClickFlipHorizontal"
-            android:text="Flip Horizontal" />
+            android:text="Flip Horizontal/Vert" />
 
         <Button
             android:id="@+id/button3"
@@ -47,6 +47,13 @@
             android:layout_height="wrap_content"
             android:onClick="onClickRotate"
             android:text="Wheel Rotation" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickFade"
+            android:text="Fade" />
 
         <ImageView
             android:id="@+id/animage"

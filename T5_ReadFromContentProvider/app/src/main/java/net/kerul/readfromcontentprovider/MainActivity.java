@@ -20,22 +20,27 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int REQUEST_READ_CONTACTS = 50;
+    public static final int REQUEST_READ_CONTACTS = 79;
     ListView list;
     ArrayList mobileArray;
     ArrayList numberArray;
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         numberArray = new ArrayList();
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
+            //if permission granted then extract all contacts
             mobileArray = getAllContacts();
         } else {
             requestPermission();
         }
         list = findViewById(R.id.list);
+
+        //arraylist of items
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, mobileArray);
         list.setAdapter(adapter);
@@ -46,20 +51,26 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,number,Toast.LENGTH_LONG).show();
             }
         });
-    }
+    }//end onCreate
+
     private void requestPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.READ_CONTACTS)) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                android.Manifest.permission.READ_CONTACTS)) {
             // show UI part if you want here to show some rationale !!!
         } else {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_CONTACTS},
+            ActivityCompat.requestPermissions(this, new String[]{
+                    android.Manifest.permission.READ_CONTACTS},
                     REQUEST_READ_CONTACTS);
         }
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_CONTACTS)) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                android.Manifest.permission.READ_CONTACTS)) {
         } else {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_CONTACTS},
+            ActivityCompat.requestPermissions(this, new String[]{
+                    android.Manifest.permission.READ_CONTACTS},
                     REQUEST_READ_CONTACTS);
         }
-    }
+    }//end requestPermission
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -75,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         }
-    }
+    }//end onRequestPermissionsResult
+
     @SuppressLint("Range")
     private ArrayList getAllContacts() {
         ArrayList<String> nameList = new ArrayList<>();
@@ -111,5 +123,5 @@ public class MainActivity extends AppCompatActivity {
             cur.close();
         }
         return nameList;
-    }
-}
+    }//end getAllContacts
+}//end MainActivity
